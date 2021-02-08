@@ -21,7 +21,7 @@ function generatePassword(pwlength) {
   pwgen[2] = lowerChars;
   pwgen = pwgen.fill(allChars, 3);
   return shuffpwgen(pwgen.map(function (x) { return x[Math.floor(Math.random() * x.length)] })).join('');
-
+}
 function shuffpwgen(array) {
   for (var i = array.length -1; i > 0; i--){
     var y = Math.floor(Math.random() * (i + 1));
