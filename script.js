@@ -25,11 +25,11 @@ function generatePassword(pwlength) {
       var spec = "!@#$%^&*?"
       var allChars = upper + lower + integer + spec
       // Run for-loop to generate pw
-      var generatePassword = ""
+      var genPassword = ""
       for (var i = 0; i < pwlength; i++) {
-      pwlength.value += allChars.charAt(Math.floor(Math.random() * allChars.length));
+      genPassword += allChars.charAt(Math.floor(Math.random() * allChars.length));
     }
-    return generatePassword;
+    return genPassword;
   }
 }
 
