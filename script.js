@@ -9,28 +9,31 @@ function writePassword() {
   passwordText.value = password;
 
 }
-// Define generatePassword function
+ 
+//generate password
 function generatePassword(pwlength) {
-  var numberChars = "0123456789";
-  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
-  var allChars = numberChars + upperChars + lowerChars
-  var pwgen = PWarray(pwlength)
-  pwgen[0] = numberChars;
-  pwgen[1] = upperChars;
-  pwgen[2] = lowerChars;
-  pwgen = pwgen.fill(allChars, 3);
-  return shuffpwgen(pwgen.map(function (x) { return x[Math.floor(Math.random() * x.length)] })).join('');
-}
-function shuffpwgen(array) {
-  for (var i = array.length -1; i > 0; i--){
-    var y = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+  // request user input for password length
+  var pwlength = prompt("Designate length of password between 8 and 128 characters")
+  if (pwlength <8 || pwlength >128) {
+    alert("password must be between 8 and 128");
+      location.reload()
+    } else {
+      // Designate PW criteria
+      var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      var lower = "abcdefghijklmnopqrstuvwxyz"
+      var integer = "123456789"
+      var spec = "!@#$%^&*?"
+      var allChars = upper + lower + integer + spec
+      // Run for-loop to generate pw
+      var generatePassword = ""
+      for (var i = 0; i < pwlength; i++) {
+      pwlength.value += allChars.charAt(Math.floor(Math.random() * allChars.length));
+    }
+    return generatePassword;
   }
-  return array;
 }
 
+  
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
+generateBtn.addEventListener("click", writePassword())
